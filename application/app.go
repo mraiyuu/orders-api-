@@ -31,7 +31,7 @@ func (a *App) Start(ctx context.Context) error {
 
 	err := a.rdb.Ping(ctx).Err()
 	if err != nil {
-		fmt.Errorf("failed to connect to redis: %w", err)
+		fmt.Println("failed to connect to redis: %w", err)
 	}
 
 	defer func() {
@@ -59,5 +59,5 @@ func (a *App) Start(ctx context.Context) error {
 		return server.Shutdown(timeout)
 	}
 
-	return nil
+	// return nil
 }
